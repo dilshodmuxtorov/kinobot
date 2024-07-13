@@ -3,23 +3,19 @@ import sqlite3
 def add_user_to_db(user_id, username, fullname):
     conn = sqlite3.connect('bot.db')
     cursor = conn.cursor()
-
-    # Check if user_id exists in the database and retrieve the is_active status
     cursor.execute('''
     SELECT is_active FROM users WHERE user_id = ?
     ''', (user_id,))
     result = cursor.fetchone()
 
     if result is not None:
-        # If user_id exists, check the is_active status
-        if result[0] == 0:  # Assuming 0 is false
+        if result[0] == 0:  
             cursor.execute('''
             UPDATE users
             SET is_active = 1
             WHERE user_id = ?
             ''', (user_id,))
     else:
-        # If user_id does not exist, insert the new user
         cursor.execute('''
         INSERT OR IGNORE INTO users (user_id, username, fullname, is_active) VALUES (?, ?, ?, 1)
         ''', (user_id, username, fullname))

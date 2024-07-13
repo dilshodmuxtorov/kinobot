@@ -66,39 +66,6 @@ async def process_callback_confirm(callback_query: types.CallbackQuery, state: F
     await bot.answer_callback_query(callback_query.id)
     await state.finish()
 
-# @dp.message_handler(lambda message: message.text == "🚮Delete video")
-# async def button_handler(message: types.Message):
-#     if await IsAdmin().check(message):
-#         await DeleteVideoState.code.set()
-#         await message.answer("Send a code you want to delete a video")
-
-# @dp.message_handler(state=DeleteVideoState.code)
-# async def process_message(message: types.Message, state: FSMContext):
-#     async with state.proxy() as data:
-#         data['message_to_send'] = message.text  
-#         try:
-#             video_id = get_video(int(message.text))
-#         except BadRequest:
-#             await message.answer(html.bold("There is no video in this code!"))
-#     await DeleteVideoState.confirm.set()
-#     await message.answer_video(video=video_id,caption=f"Are you sure to delete this video {message.text}?",reply_markup=confirm_btn)
- 
-# @dp.callback_query_handler(lambda c: c.data in ['confirm_yes', 'confirm_no'], state=DeleteVideoState.confirm)
-# async def process_callback_confirm(callback_query: types.CallbackQuery, state: FSMContext):
-#     async with state.proxy() as data:
-#         video_id= data['message_to_send']
-    
-#     if callback_query.data == 'confirm_yes':
-#         if video_id:
-#             delete_video(int(video_id))
-#             await bot.send_message(callback_query.from_user.id, html.bold("✔️ Video deleted."))
-#         else:
-#             await bot.send_message(callback_query.from_user.id, html.bold("❌ Unable to delete video."))
-#     else:
-#         await bot.send_message(callback_query.from_user.id, html.bold("❌ Video not deleted."))
-  
-#     await bot.answer_callback_query(callback_query.id)
-#     await state.finish()
 
 @dp.message_handler(lambda message: message.text == "🚮Delete video")
 async def button_handler(message: types.Message):
