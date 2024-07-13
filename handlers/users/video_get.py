@@ -8,7 +8,7 @@ from data import config
 async def get_message_id_handler(message: types.Message):
     code = int(message.text)
     if get_video(code):
-        await message.answer_video(video=get_video(code),caption=f"👇👇Ushbu kanalga a'zo bo'ling\n\n{config.CHANNEL}")
+        await message.answer_video(video=get_video(code),caption=f"👇👇admin bilan bog'lanish shu bot orqali\n\n{config.CHANNEL}")
     else:
         await message.answer(html.italic("❌Bu kodda video mavjud emas. To'g'ri kod kiriting "))
     
