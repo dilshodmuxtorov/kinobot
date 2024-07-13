@@ -1,4 +1,11 @@
 from aiogram.dispatcher.filters.state import State, StatesGroup
 
-class CodeState(StatesGroup):
-    waiting_for_code = State()
+class MessageState(StatesGroup):
+    message = State()
+    confirm = State()
+
+class DeleteVideoState(StatesGroup):
+    code = State()
+    confirm = State()
+
+    

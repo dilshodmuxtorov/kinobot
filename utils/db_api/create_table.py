@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS users (
     user_id INTEGER UNIQUE,
     username TEXT,
     fullname TEXT,
-    registrated_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    registrated_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE
 )
 ''')
 

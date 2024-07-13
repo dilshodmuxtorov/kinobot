@@ -2,7 +2,8 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
 main_bt = ReplyKeyboardMarkup(
     [
-        [KeyboardButton('📊 Statistika')]
+        [KeyboardButton("📤Send message to users"),KeyboardButton('📊 Statistika')],
+        [KeyboardButton("🚮Delete video")],
     ]
     ,resize_keyboard=True
 )

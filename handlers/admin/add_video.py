@@ -1,7 +1,7 @@
 from loader import dp
 from aiogram import types
 from filters.is_admin import IsAdmin
-from utils.style.styles import bold
+from utils.style.html import bold
 from utils.db_api.db_commands import add_video
 
 

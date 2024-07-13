@@ -1,8 +1,7 @@
 from aiogram import types
 from aiogram.dispatcher.filters import BoundFilter
-
-
+from data import config
 class IsAdmin(BoundFilter):
     async def check(self, message: types.Message) -> bool:
-        admins = [5645617968]  
-        return message.from_user.id in admins
+        admins =  config.get_admin()
+        return str(message.from_user.id) in admins
