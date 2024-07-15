@@ -16,7 +16,7 @@ async def start_handler(message: types.Message):
         count = count_video()
         text =html.bold(f"""Salom {message.from_user.full_name},botga xush kelibsiz!""")+html.italic(f"""
 
-Video kodini kiriting (1 dan {count} gacha), 
+Kino kodini kiriting (1 dan {count} gacha), 
 Bot sizga o'sha videoni tashab beradi.
 """ )
         await message.answer(text)
